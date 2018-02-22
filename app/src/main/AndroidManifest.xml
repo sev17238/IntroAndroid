@@ -9,18 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        //android:debuggable = "true">
 
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".Main_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LOUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Activity_Info"
+            android:label="@string/title_activity__info"
+            android:parentActivityName=".Main_Activity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Main_Activity"/>
+        </activity>
+
+
     </application>
 
 </manifest>
