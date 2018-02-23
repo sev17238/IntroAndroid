@@ -6,9 +6,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.content.Context;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 /**
@@ -40,25 +37,16 @@ public class ItemListAdapter extends BaseAdapter {
         return position;
     }
 
-    public Item getItemById(int id){
-        Item it = new Item();
-        for (int i = 0; i <aitemlist.size() ; i++) {
-            it = aitemlist.get(i);
-            if (id == it.getId()) {
-                return it;
-            }
-        }
-        return null;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(acontext,R.layout.item_list,null);
         TextView name = (TextView)v.findViewById(R.id.Name);
-        TextView des = (TextView)v.findViewById(R.id.Decription);
+        TextView depto = (TextView)v.findViewById(R.id.Depto);
+        TextView height = (TextView)v.findViewById(R.id.Height);
 
         name.setText(aitemlist.get(position).getName());
-        des.setText(aitemlist.get(position).getDescription());
+        depto.setText(aitemlist.get(position).getDepto());
+        height.setText(aitemlist.get(position).getHeight());
 
         v.setTag(aitemlist.get(position).getId());
         return v;

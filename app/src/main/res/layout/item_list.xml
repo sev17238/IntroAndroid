@@ -18,11 +18,19 @@
         android:textColor="#000000"/>
 
     <TextView
-        android:id="@+id/Decription"
+        android:id="@+id/Depto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Itemnumero2"
         android:textColor="#000000"
         android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/Height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Itemnumero3"
+        android:textColor="#000000"
+        android:textSize="12dp" />
 
 </LinearLayout>

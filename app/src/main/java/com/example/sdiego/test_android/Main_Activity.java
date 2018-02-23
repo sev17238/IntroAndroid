@@ -31,13 +31,13 @@ public class Main_Activity extends AppCompatActivity{
         lvItem = (ListView) findViewById(R.id.listview_item);
         itemList = new ArrayList<>();
 
-        itemList.add(new Item(200, "Volcan de Pacaya", "2552 MSNM"));
-        itemList.add(new Item(100, "Volcan de Agua", "3760 MSNM"));
-        itemList.add(new Item(100, "Volcan Santa Maria", "3772 MSNM"));
-        itemList.add(new Item(300, "Volcan de Acatenango", "4010 MSNM"));
-        itemList.add(new Item(300, "Volcan de Atitlan", "3535 MSNM"));
-        itemList.add(new Item(300, "Volcan de Ipala", "1650 MSNM"));
-        itemList.add(new Item(300, "Volcan de Tajumulco", "4200 MSNM"));
+        itemList.add(new Item(200, "Volcan de Pacaya","Escuintla","2552 MSNM"));
+        itemList.add(new Item(100, "Volcan de Agua", "Escuintla","3760 MSNM"));
+        itemList.add(new Item(100, "Volcan Santa Maria","Quetzaltenango", "3772 MSNM"));
+        itemList.add(new Item(300, "Volcan de Acatenango", "Chimaltenango", "4010 MSNM"));
+        itemList.add(new Item(300, "Volcan de Atitlan", "Solola","3535 MSNM"));
+        itemList.add(new Item(300, "Volcan de Ipala", "Chiquimula","1650 MSNM"));
+        itemList.add(new Item(300, "Volcan de Tajumulco", "San Marcos","4200 MSNM"));
 
         adapter = new ItemListAdapter(getApplicationContext(), itemList);
         lvItem.setAdapter(adapter);
@@ -50,10 +50,12 @@ public class Main_Activity extends AppCompatActivity{
                 Item it = (Item)adapter.getItem(position);
 
                 Intent intent = new Intent(Main_Activity.this,Activity_Info.class);
-                Bundle bundle = new Bundle();
+                /*Bundle bundle = new Bundle();
                 bundle.putSerializable("Item",it);
+                intent.putExtras(bundle);*/
 
-                intent.putExtras(bundle);
+                intent.putExtra("Item",it);
+
                 startActivity(intent);
             }
         });
