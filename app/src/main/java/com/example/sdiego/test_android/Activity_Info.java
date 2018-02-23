@@ -19,13 +19,13 @@ public class Activity_Info extends AppCompatActivity {
         campoHeight = (TextView) findViewById(R.id.height);
 
         Bundle sentobj = getIntent().getExtras();
-        Item it = sentobj.getParcelable("Item");
+        ItemSec itsec = sentobj.getParcelable("ItemSec");
 
-        if(it!=null){
+        if(itsec!=null){
             //it = (Item)sentobj.getSerializable("Item");
-            campoName.setText(it.getName());
-            campoDepto.setText(it.getDepto());
-            campoHeight.setText(it.getHeight());
+            campoName.setText(itsec.getName());
+            campoDepto.setText(itsec.getDepto());
+            campoHeight.setText(itsec.getHeight());
         }
     }
 

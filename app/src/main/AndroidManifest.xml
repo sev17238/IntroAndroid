@@ -13,18 +13,30 @@
         <activity android:name=".Main_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LOUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".Activity_Info"
-            android:label="@string/title_activity__info"
-            android:parentActivityName=".Main_Activity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Main_Activity"/>
+           android:label="Nombre_ubicacion"
+            android:parentActivityName=".SecItem_List">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SecItem_List" />
         </activity>
+
+        <activity
+            android:name=".SecItem_List"
+            android:label="Lista_2"
+            android:parentActivityName=".Main_Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main_Activity" />
+        </activity>
+
+
 
 
     </application>

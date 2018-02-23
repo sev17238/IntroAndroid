@@ -12,17 +12,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Country"
-        android:text="Country"
+        android:id="@+id/Name"
+        android:text="volcan"
         android:textSize="20dp"
         android:textColor="#000000"/>
 
     <TextView
-        android:id="@+id/Continent"
+        android:id="@+id/Depto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continent"
+        android:text="depto"
         android:textColor="#000000"
         android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/Height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="height"
+        android:textColor="#000000"
+        android:textSize="12dp" />
+
 
 </LinearLayout>

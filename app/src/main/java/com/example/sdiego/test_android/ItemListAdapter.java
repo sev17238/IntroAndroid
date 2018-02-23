@@ -40,13 +40,13 @@ public class ItemListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(acontext,R.layout.item_list,null);
-        TextView name = (TextView)v.findViewById(R.id.Name);
-        TextView depto = (TextView)v.findViewById(R.id.Depto);
-        TextView height = (TextView)v.findViewById(R.id.Height);
 
-        name.setText(aitemlist.get(position).getName());
-        depto.setText(aitemlist.get(position).getDepto());
-        height.setText(aitemlist.get(position).getHeight());
+
+        TextView country = (TextView)v.findViewById(R.id.Country);
+        TextView continent = (TextView)v.findViewById(R.id.Continent);
+
+        country.setText(aitemlist.get(position).getCountry());
+        continent.setText(aitemlist.get(position).getContinent());
 
         v.setTag(aitemlist.get(position).getId());
         return v;

@@ -1,8 +1,9 @@
 package com.example.sdiego.test_android;
 
-import java.io.Serializable;
+import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
+import java.util.ArrayList;
 
 /**
  * Created by SDiego on 21/02/2018.
@@ -10,15 +11,15 @@ import android.os.Parcelable;
 
 public class Item implements Parcelable {
     private int id;
-    private String name;
-    private String depto;
-    private String height;
+    private String country;
+    private String continent;
+    private List<ItemSec> volcanes;
 
-    public Item(int id, String name, String depto,String height){
+    public Item(int id, String country, String continent, List<ItemSec> volcanes){
         this.id = id;
-        this.name = name;
-        this.depto = depto;
-        this.height = height;
+        this.country = country;
+        this.continent = continent;
+        this.volcanes = volcanes;
     }
 
     public int getId(){
@@ -27,24 +28,27 @@ public class Item implements Parcelable {
     public void setId(int id){
         this.id = id;
     }
-    public String getName(){
-        return name;
+    public String getCountry(){
+        return country;
     }
-    public void setName(String name){
-        this.name = name;
+    public String getContinent(){
+        return continent;
     }
-    public String getDepto(){
-        return depto;
+    public List<ItemSec> getVolcanes(){
+        return volcanes;
     }
-    public String getHeight(){
-        return height;
-    }
+
 
     protected Item(Parcel in) {
         id = in.readInt();
-        name = in.readString();
-        depto = in.readString();
-        height = in.readString();
+        country = in.readString();
+        continent = in.readString();
+        if (in.readByte() == 0x01) {
+            volcanes = new ArrayList<ItemSec>();
+            in.readList(volcanes, ItemSec.class.getClassLoader());
+        } else {
+            volcanes = null;
+        }
     }
 
     @Override
@@ -55,9 +59,14 @@ public class Item implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(name);
-        dest.writeString(depto);
-        dest.writeString(height);
+        dest.writeString(country);
+        dest.writeString(continent);
+        if (volcanes == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(volcanes);
+        }
     }
 
     @SuppressWarnings("unused")
